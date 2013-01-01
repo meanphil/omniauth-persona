@@ -1,5 +1,5 @@
 module OmniAuth
-  module BrowserID
+  module Persona
     VERSION = "0.0.1"
   end
 end

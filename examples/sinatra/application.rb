@@ -5,17 +5,17 @@ require 'bundler'
 Bundler.setup :default, :development, :example, ENV['RACK_ENV']
 
 require 'sinatra'
-require 'omniauth-browserid'
+require 'omniauth-persona'
 require 'pry'
 
 use Rack::Session::Cookie
-use OmniAuth::Strategies::BrowserID
+use OmniAuth::Strategies::Persona
 
 get '/' do
-  "<a href='/auth/browser_id'>Auth with BrowserID</a>"
+  "<a href='/auth/persona'>Auth with Persona</a>"
 end
 
-post '/auth/browser_id/callback' do
+post '/auth/persona/callback' do
   content_type 'text/plain'
   request.env['omniauth.auth'].to_hash.inspect
 end
