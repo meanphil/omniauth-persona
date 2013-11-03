@@ -12,14 +12,6 @@ module OmniAuth
       option :name, 'persona'
       option :audience_url, nil
 
-      def other_phase
-        if on_path?(failure_path)
-          fail!('invalid_credentials')
-        else
-          call_app!
-        end
-      end
-
       def failure_path
         options[:failure_path] || "#{path_prefix}/failure"
       end
